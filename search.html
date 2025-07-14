@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔍 بحث | PIZZA HOT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .top-nav {
+      background: #1c1c1c;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffd700;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #ffd700;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2rem;
+      color: #ffa500;
+    }
+
+    form {
+      text-align: center;
+      margin: 30px auto;
+    }
+
+    input[type="text"] {
+      padding: 12px 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 12px;
+      border: 2px solid #ff9900;
+      font-size: 1rem;
+      background: #fff;
+      color: #000;
+    }
+
+    button[type="submit"] {
+      padding: 12px 20px;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      margin-right: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .results {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .result-item {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border: 1px solid #333;
+    }
+
+    .result-item h3 {
+      margin: 0;
+      color: #00e676;
+    }
+
+    .result-item p {
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <div><strong>🍕 PIZZA HOT</strong></div>
+    <div>
+      <a href="index.html">الرئيسية</a>
+      <a href="store.html">المتجر</a>
+    </div>
+  </div>
+
+  <h1>🔍 البحث الشامل</h1>
+
+  <form onsubmit="return runSearch(event)">
+    <input type="text" id="search-input" placeholder="ابحث عن عرض، فرع، مطعم، صنف..." />
+    <button type="submit">بحث</button>
+  </form>
+
+  <div class="results" id="results">
+    <!-- النتائج ستظهر هنا -->
+  </div>
+
+  <footer>
+    بلعين – شارع صفا – رام الله<br>
+    © 2025 PIZZA HOT – جميع الحقوق محفوظة 🍕
+  </footer>
+
+  <script>
+    const database = [
+      { title: "🔥 عرض البيتزا العائلية", text: "2 بيتزا XL بسعر واحدة!" },
+      { title: "📍 فرع بيتونيا", text: "موقع الفرع على شارع القدس الرئيسي." },
+      { title: "🚗 التوصيل السريع", text: "خدمة توصيل خلال 30 دقيقة داخل رام الله والبيرة." },
+      { title: "🌳 منتزه PIZZA HOT", text: "منطقة خارجية للجلوس العائلي." },
+      { title: "🍔 مطعم البرجر", text: "فرع خاص للبرغر بجوار الفرن الرئيسي." },
+      { title: "🥤 المشروبات المميزة", text: "عصائر طازجة مع كل وجبة." }
+    ];
+
+    function runSearch(e) {
+      e.preventDefault();
+      const q = document.getElementById("search-input").value.trim().toLowerCase();
+      const container = document.getElementById("results");
+      container.innerHTML = "";
+
+      if (!q) return;
+
+      const found = database.filter(item =>
+        item.title.toLowerCase().includes(q) || item.text.toLowerCase().includes(q)
+      );
+
+      if (found.length === 0) {
+        container.innerHTML = "<p style='color:#ff4d4d;text-align:center;'>❌ لم يتم العثور على نتائج.</p>";
+        return;
+      }
+
+      found.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "result-item";
+        div.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
+        container.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+</html>

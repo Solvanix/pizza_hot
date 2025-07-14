@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>🍗 عرض أجنحة الدجاج</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 60px 16px;
+    }
+    .poster {
+      max-width: 640px;
+      margin: auto;
+      background: #222;
+      border-radius: 18px;
+      box-shadow: 0 0 24px rgba(0,0,0,0.4);
+      padding: 28px 20px;
+    }
+    .poster img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+    .poster h1 {
+      font-size: 2rem;
+      color: #ffcc66;
+      margin-bottom: 12px;
+    }
+    .poster p {
+      font-size: 1.2rem;
+      margin: 8px 0;
+      color: #ddd;
+    }
+    .price {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #00e676;
+      margin: 18px 0;
+    }
+    .poster a.button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 12px 28px;
+      background-color: #ff914d;
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .poster a.button:hover {
+      background-color: #ffaa66;
+    }
+    .poster button {
+      margin-top: 14px;
+      padding: 10px 22px;
+      background-color: #ffd700;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .back-link {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #aaa;
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 40px 12px;
+      }
+      .poster {
+        padding: 20px 14px;
+      }
+      .poster h1 {
+        font-size: 1.5rem;
+      }
+      .poster p {
+        font-size: 1rem;
+      }
+      .price {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+  <script src="cart.js"></script>
+</head>
+<body>
+
+<a href="index.html" class="back-link">⟵ العودة للصفحة الرئيسية</a>
+
+<div class="poster">
+  <img src="assets/images/wings_with_dip_hero.jpg" alt="🍗 عرض أجنحة الدجاج">
+  <h1>🍗 عرض أجنحة الدجاج</h1>
+  <p>6 أجنحة دجاج مشوية متبّلة</p>
+  <p>🍟 بطاطا صغيرة</p>
+  <div class="price">فقط بـ 15₪</div>
+  <a href="https://wa.me/972569787731?text=🛒 عرض أجنحة الدجاج" target="_blank" class="button">اطلب عبر واتساب</a><br>
+  <button onclick="addToCart('عرض أجنحة الدجاج', 15)">🛒 أضف إلى السلة</button>
+</div>
+
+</body>
+</html>
