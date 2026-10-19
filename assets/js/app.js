@@ -26,7 +26,9 @@
     });
     if (totalEl) totalEl.textContent = money(total());
     if (wa) {
-      const lines = ['مرحبًا Pizza Hot، أريد تأكيد هذا الطلب:', '', ...cart.map(i => `• ${i.name}${i.variant ? ` (${i.variant})` : ''} × ${i.qty} — ${money(i.price * i.qty)}`), '', `الإجمالي: ${money(total())}`, 'الاسم: ', 'العنوان: '];
+      const member = JSON.parse(localStorage.getItem('pizzaHotBalainLoyalty') || 'null');
+      const reward = JSON.parse(localStorage.getItem('pizzaHotActiveReward') || 'null');
+      const lines = ['مرحبًا Pizza Hot، أريد تأكيد هذا الطلب:', '', ...cart.map(i => `• ${i.name}${i.variant ? ` (${i.variant})` : ''} × ${i.qty} — ${money(i.price * i.qty)}`), '', `الإجمالي: ${money(total())}`, reward ? `المكافأة المحجوزة: ${reward.name}` : '', member ? `عضو نقاط: ${member.name} — الهاتف: ${member.phone}` : '', 'الاسم: ', 'العنوان: '];
       wa.href = `https://wa.me/972569787731?text=${encodeURIComponent(lines.join('\n'))}`;
     }
   }
