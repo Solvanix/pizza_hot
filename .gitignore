@@ -1,2 +1,7 @@
 *.Zone.Identifier*
 .ipynb_checkpoints/
+node_modules/
+mobile/node_modules/
+mobile/dist/
+.expo/
+.DS_Store
